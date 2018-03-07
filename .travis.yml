@@ -40,12 +40,12 @@ install:
 script:
   - cd openssl_version_cache/src
   - tar xzf openssl-$OPENSSL_VERSION.tar.gz && cd openssl-$OPENSSL_VERSION
-  - ./config --prefix=$PWD/../../build/openssl-$OPENSSL_VERSION --openssldir=$PWD/../../build/openssl-$OPENSSL_VERSION
-  - make -j$JOBS
-  - make install_sw
-  - make install_ssldirs
+  - ./Configure linux-x86_64 --prefix=$PWD/../../build/openssl-$OPENSSL_VERSION --openssldir=$PWD/../../build/openssl-$OPENSSL_VERSION/ssl enable-shared -Wa,--noexecstack > build.log 2>&1 || (cat build.log && exit 1)
+  - make -j$JOBS > build.log 2>&1 || (cat build.log && exit 1)
+  - make install_sw > build.log 2>&1 || (cat build.log && exit 1)
+  - make install_ssldirs > build.log 2>&1 || (cat build.log && exit 1)
   - cd ../../..
-  - OPENSSL_PREFIX=$PWD/openssl_version_cache/build/openssl-$OPENSSL_VERSION perl Makefile.PL
+  - OPENSSL_PREFIX=$PWD/openssl_version_cache/build/openssl-$OPENSSL_VERSION LD_LIBRARY_PATH=$PWD/openssl_version_cache/build/openssl-$OPENSSL_VERSION/lib perl Makefile.PL
   - make
   - make test
 
