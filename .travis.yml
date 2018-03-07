@@ -16,6 +16,9 @@ perl:
   - "5.10"
   - "5.8"
 
+env:
+  - AUTOMATED_TESTING=1
+
 install:
   - perl Makefile.PL
 
