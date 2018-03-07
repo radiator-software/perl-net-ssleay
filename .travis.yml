@@ -17,8 +17,9 @@ perl:
   - "5.8"
 
 env:
-  - PERL_MM_USE_DEFAULT=1
-  - AUTOMATED_TESTING=1
+  global:
+    - PERL_MM_USE_DEFAULT=1
+    - AUTOMATED_TESTING=1
 
 install:
   - perl Makefile.PL
