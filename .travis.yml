@@ -43,7 +43,7 @@ script:
       if [ ! -d openssl_version_cache/src/openssl-$OPENSSL_VERSION ]; then
         cd openssl_version_cache/src
         tar xzf openssl-$OPENSSL_VERSION.tar.gz
-        ../..
+        cd ../..
       fi
       cd openssl_version_cache/src/openssl-$OPENSSL_VERSION
       ./Configure linux-x86_64 --prefix=$PWD/../../build/openssl-$OPENSSL_VERSION --openssldir=$PWD/../../build/openssl-$OPENSSL_VERSION/ssl enable-shared -Wa,--noexecstack > build.log 2>&1 || (cat build.log && exit 1)
