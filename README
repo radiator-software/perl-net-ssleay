@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/radiator-software/perl-net-ssleay.svg?branch=master)](https://travis-ci.org/radiator-software/perl-net-ssleay)
-
 README - Net::SSLeay Perl module for using OpenSSL
 $Id$
 
