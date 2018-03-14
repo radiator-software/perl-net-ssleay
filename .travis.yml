@@ -29,6 +29,11 @@ env:
     - OPENSSL_VERSION=1.0.0s
     - OPENSSL_VERSION=0.9.8zh
 
+matrix:
+  exclude:
+  - perl: "5.8"
+    env: OPENSSL_VERSION=1.1.0g
+
 cache:
   directories:
   - openssl_version_cache
